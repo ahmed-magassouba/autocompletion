@@ -37,11 +37,12 @@
     </div>
 
     <main>
-
-        <form action="">
-            <label for="search"></label>
+        <img class='logo' src="Images/logo2.png" alt="">
+        <form action="Views/recherche.php">
             <input type="search" name="search" id="search">
-            <input type="submit" name="submit" value="">
+            <button type="submit" >
+                <img src="Images/loupe.png" alt="">
+            </button>
         </form>
     </main>
 
