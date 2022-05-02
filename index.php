@@ -1,3 +1,10 @@
+<?php
+require_once 'Models/StateModel.php';
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -38,11 +45,12 @@
 
     <main>
         <img class='logo' src="Images/logo2.png" alt="">
-        <form action="Views/recherche.php">
-            <input type="search" name="search" id="search">
-            <button type="submit" >
+        <form action="Views/recherche.php" method="post">
+            <input type="search" name="search" id="search" placeholder="Rechercher un pays ">
+            <button type="submit">
                 <img src="Images/loupe.png" alt="">
             </button>
+            <span id="searchResult"></span>
         </form>
     </main>
 
