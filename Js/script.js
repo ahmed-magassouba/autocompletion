@@ -5,7 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let form = document.querySelector("form");
 
   input.addEventListener("keyup", function () {
-    if (input.value.length > 2) {
+
+    if (input.value.length > 0) {
+
       let data = new FormData(form);
       let ul = document.createElement("ul");
       //fetcher les données
@@ -35,9 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
           });
           searchResult.appendChild(ul);
         });
+        
+
     } else {
+
       ulbreak = searchResult.querySelector("ul");
       ulbreak !== null ? ulbreak.remove() : null;
+
     }
   });
 

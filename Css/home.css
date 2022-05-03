@@ -13,12 +13,12 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   min-height: 70vh;
 }
 
 .logo{
     width : 80px;
     padding-bottom: 30px;
+    margin-top: 150px;
 }
 
 form{
@@ -28,6 +28,7 @@ form{
     align-items: center;
     position: relative;
     width:90%;
+    
 }
 
 input{

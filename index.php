@@ -40,6 +40,9 @@
 
 
         </span>
+        <span id="searchResult2">
+
+        </span>
     </main>
 
     <footer>

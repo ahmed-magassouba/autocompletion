@@ -31,17 +31,17 @@ try {
 $search = isset($_POST['search']) ? strip_tags($_POST['search']) : '';
 
 
-$sqlVerif = "SELECT * FROM `country` WHERE name LIKE :search ORDER BY name LIMIT 4";
+$sqlVerif = "SELECT * FROM `country` WHERE name LIKE :search ORDER BY name LIMIT 10";
 
 //ON PREPARE LA REQUETE
 $requete = $bdd->prepare($sqlVerif);
 
 //ON EXECUTE LA REQUETE
 $requete->execute(array(
-    ':search' => $search.'%'
+    ':search' => '%' . $search . '%'
 ));
 
-$select = $requete->fetchAll();
+$result = $requete->fetchAll();
 
 
 $replaceString = '<b>' . $search . '</b>';
@@ -51,4 +51,4 @@ foreach ($select as $key => $value) {
 
 
 
-echo json_encode($select);
+echo json_encode($result);
