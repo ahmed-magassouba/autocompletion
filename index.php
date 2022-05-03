@@ -1,5 +1,4 @@
 <?php
-require_once 'Models/StateModel.php';
 
 
 ?>
@@ -27,21 +26,6 @@ require_once 'Models/StateModel.php';
 
     </header>
 
-    <div class="message">
-        <?php if (!empty($_SESSION['message'])) : ?>
-            <div>
-                <?php echo $_SESSION['message'];
-                unset($_SESSION['message']); ?>
-            </div>
-        <?php endif; ?>
-
-        <?php if (!empty($_SESSION['erreur'])) : ?>
-            <div>
-                <?php echo $_SESSION['erreur'];
-                unset($_SESSION['erreur']); ?>
-            </div>
-        <?php endif; ?>
-    </div>
 
     <main>
         <img class='logo' src="Images/logo2.png" alt="">
@@ -50,8 +34,12 @@ require_once 'Models/StateModel.php';
             <button type="submit">
                 <img src="Images/loupe.png" alt="">
             </button>
-            <span id="searchResult"></span>
+
         </form>
+        <span id="searchResult">
+
+
+        </span>
     </main>
 
     <footer>
