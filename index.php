@@ -40,7 +40,7 @@
 
 
         </span>
-        <span id="searchResult2">
+        <span id="searchSuggestion">
 
         </span>
     </main>

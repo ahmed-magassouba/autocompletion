@@ -37,15 +37,15 @@ $sqlVerif = "SELECT * FROM `country` WHERE name LIKE :search ORDER BY name LIMIT
 $requete = $bdd->prepare($sqlVerif);
 
 //ON EXECUTE LA REQUETE
-$requete->execute(array(
-    ':search' => '%' . $search . '%'
-));
+$requete->execute(array(':search' => '%' . $search . '%'));
+
+    
 
 $result = $requete->fetchAll();
 
 
 $replaceString = '<b>' . $search . '</b>';
-foreach ($select as $key => $value) {
+foreach ($result as $key => $value) {
 }
 
 
