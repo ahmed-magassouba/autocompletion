@@ -6,11 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let searchSuggestion = document.querySelector("#searchSuggestion");
 
   input.addEventListener("keyup", function () {
-
     if (input.value.length > 0) {
-
       let data = new FormData(form);
-      let dataSuggestion = new FormData(form);
       let ul = document.createElement("ul");
 
       //fetch des données pour la recherche
@@ -22,11 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
           return response.json();
         })
         .then(function (responseData) {
-
           if (responseData[0]) {
             searchResult.innerHTML = "";
-            ulbreak = searchResult.querySelector('ul')
-            ulbreak !== null ? ulbreak.remove() : null
+            ulbreak = searchResult.querySelector("ul");
+            ulbreak !== null ? ulbreak.remove() : null;
 
             responseData.forEach((element) => {
               console.log(element.name);
@@ -37,15 +33,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
               list.addEventListener("click", function () {
                 input.value = element.name;
+               
+                  (window.location.href = `Views/recherche.php?search=${element.name}`)
+              
               });
             });
             searchResult.appendChild(ul);
           } else {
-            searchResult.innerHTML = "Aucun résultat trouvé pour votre recherche";
+            searchResult.innerHTML =
+              "Aucun résultat trouvé pour votre recherche";
           }
         });
+    } else {
+      ulbreak = searchResult.querySelector("ul");
+      ulbreak !== null ? ulbreak.remove() : null;
+      window.location.href = "index.php";
+    }
+  });
 
-      //fetch des données pour les suggestions de réponse
+
+
+
+  input.addEventListener("keyup", function () {
+    if (input.value.length > 0) {
+      let dataSuggestion = new FormData(form);
+      let ul = document.createElement("ul");
+
+      //fetch des données pour la recherche
       fetch("Models/StateModel2.php", {
         method: "POST",
         body: dataSuggestion,
@@ -54,24 +68,32 @@ document.addEventListener("DOMContentLoaded", function () {
           return response.json();
         })
         .then(function (responseDataSuggestion) {
+          if (responseDataSuggestion[0]) {
+            searchSuggestion.innerHTML = "";
+            ulbreak = searchSuggestion.querySelector("ul");
+            ulbreak !== null ? ulbreak.remove() : null;
 
-          searchSuggestion.innerHTML="bonjour";
+            responseDataSuggestion.forEach((element) => {
+              console.log(element.name);
 
-        })
+              let list = document.createElement("li");
+              list.innerHTML = element.name;
+              ul.appendChild(list);
 
-
-
-
-
-
-
+              list.addEventListener("click", function () {
+                input.value = element.name;
+              
+                  (window.location.href = `Views/recherche.php?search=${element.name}`)
+               
+              });
+            });
+            searchSuggestion.appendChild(ul);
+          }
+        });
     } else {
-
-      ulbreak = searchResult.querySelector("ul");
+      ulbreak = searchSuggestion.querySelector("ul");
       ulbreak !== null ? ulbreak.remove() : null;
-
+      window.location.href = "index.php";
     }
   });
-
-
 });

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Includes;
 
 ?>
@@ -26,12 +27,18 @@ namespace App\Includes;
 
     <header>
 
-        <form action="">
-            <label for="search"></label>
-            <input type="search" name="search" id="search">
-            <input type="submit" name="submit" value="">
+        <!-- <img class='logo' src="Images/logo2.png" alt=""> -->
+        <form action="" method="get">
+            <input type="search" name="search" id="search" placeholder="Rechercher un pays ">
+            <button type="submit">
+                <!-- <img src="Images/loupe.png" alt=""> -->
+            </button>
+
         </form>
-        
+        <span id="searchResult"></span>
+
+        <span id="searchSuggestion"></span>
+
     </header>
 
     <div class="message">

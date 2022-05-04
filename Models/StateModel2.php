@@ -44,9 +44,9 @@ $requete->execute(array(':search' => '%' . $search . '%'));
 $result = $requete->fetchAll();
 
 
-$replaceString = '<b>' . $search . '</b>';
-foreach ($result as $key => $value) {
-}
+// $replaceString = '<b>' . $search . '</b>';
+// foreach ($result as $key => $value) {
+// }
 
 
 

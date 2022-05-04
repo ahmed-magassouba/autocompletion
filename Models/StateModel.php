@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 //constante d'envoronnement
 define("DBHOST", "localhost");
 define("DBUSER", "root");
@@ -37,16 +37,16 @@ $sqlVerif = "SELECT * FROM `country` WHERE name LIKE :search ORDER BY name LIMIT
 $requete = $bdd->prepare($sqlVerif);
 
 //ON EXECUTE LA REQUETE
-$requete->execute(array( ':search' => $search.'%'));
-   
+$requete->execute(array(':search' => $search . '%'));
+
 
 
 $select = $requete->fetchAll();
 
 
-$replaceString = '<b>' . $search . '</b>';
-foreach ($select as $key => $value) {
-}
+// $replaceString = '<b>' . $search . '</b>';
+// foreach ($select as $key => $value) {
+// }
 
 
 
