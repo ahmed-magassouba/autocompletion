@@ -73,6 +73,7 @@ div {
 
 
 span ul {
+    width: 100%;
     border-bottom: 10px solid rgba(20, 20, 20, 0.116);
 }
 
@@ -90,8 +91,11 @@ span ul li:hover {
 }
 
 
-#searchSuggestion{
-  background-color:red;
+#searchResult{
+ display: flex;
+ width: 100%;
+ align-items: center;
+ justify-content:center;
 }
 
 @media only screen and (min-width : 1000px) {

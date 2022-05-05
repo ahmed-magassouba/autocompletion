@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
             searchSuggestion.appendChild(ul);
           } else {
             searchResult.innerHTML =
-              "Aucun résultat trouvé pour votre recherche";
+              "Aucun pays trouvé, voivci quelque propositions";
           }
         });
     } else {
