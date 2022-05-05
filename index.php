@@ -29,17 +29,17 @@
 
     <main>
         <img class='logo' src="Images/logo2.png" alt="">
-        <form action="Views/recherche.php" method="get">
-            <input type="search" name="search" id="search" placeholder="Rechercher un pays ">
+        <form action="recherche.php" method="get">
+            <input type="search" name="search" id="search" placeholder="Rechercher un pays" value="<?= isset($_GET['search'])? strip_tags($_GET['search']):'' ?>">
             <button type="submit">
                 <img src="Images/loupe.png" alt="">
             </button>
 
         </form>
-        <span id="searchResult"></span>
-
-        <span id="searchSuggestion"></span>
-
+        <div>
+            <span id="searchResult"></span>
+            <span id="searchSuggestion"></span>
+        </div>
 
         <!--    <div class="search-container">
             <input type="text" name="fruit" id="fruit" placeholder="Search fruit 🍎">

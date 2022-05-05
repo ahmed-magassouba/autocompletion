@@ -16,9 +16,9 @@ main {
 }
 
 .logo {
-    width: 80px;
+    width: 60px;
     padding-bottom: 30px;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 form {
@@ -62,11 +62,18 @@ button img {
     cursor: pointer;
 }
 
-#searchResult {
+div {
     width: 90%;
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px;
     font-size: 20px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+
+span ul {
+    border-bottom: 10px solid rgba(20, 20, 20, 0.116);
 }
 
 span ul li {
@@ -78,15 +85,23 @@ span ul li {
 
 span ul li:hover {
     background: rgba(0, 0, 255, 0.199);
-    border-radius:20px ;
-    
+    border-radius: 20px;
+
 }
 
-#searchSuggestion {
-    width: 90%;
-    border-radius: 0 0 20px 20px;
-    font-size: 20px;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    max-height: 250px;
-    overflow-y: auto;
+
+#searchSuggestion{
+  background-color:red;
+}
+
+@media only screen and (min-width : 1000px) {
+    form {
+        width: 700px;
+
+    }
+
+    div {
+        width: 700px;
+
+    }
 }

@@ -1,10 +1,3 @@
-<?php
-
-namespace App\Includes;
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -15,11 +8,11 @@ namespace App\Includes;
 
     <title> <?= isset($title) ? $title : 'Recherche' ?> </title>
     <!-- link css -->
-    <link rel="stylesheet" href="../Css/header.css">
-    <link rel="stylesheet" href="../Css/footer.css">
+    <link rel="stylesheet" href="Css/header.css">
+    <link rel="stylesheet" href="Css/footer.css">
 
     <!-- link js-->
-    <script src="../Js/script.js" type="text/javascript"></script>
+    <script src="Js/script.js" type="text/javascript"></script>
 
 </head>
 
@@ -27,21 +20,26 @@ namespace App\Includes;
 
     <header>
 
-        <!-- <img class='logo' src="Images/logo2.png" alt=""> -->
-        <form action="" method="get">
-            <input type="search" name="search" id="search" placeholder="Rechercher un pays ">
-            <button type="submit">
-                <!-- <img src="Images/loupe.png" alt=""> -->
-            </button>
+        <img class='logo' src="Images/logo2.png" alt="">
+        <section>
+            <form action="recherche.php" method="get">
+                <input type="search" name="search" id="search" placeholder="Rechercher un pays" value="<?= isset($_GET['search'])? strip_tags($_GET['search']):'' ?>">
+                <button type="submit">
+                    <img src="Images/loupe.png" alt="">
+                </button>
 
-        </form>
-        <span id="searchResult"></span>
+            </form>
 
-        <span id="searchSuggestion"></span>
+            <div>
+                <span id="searchResult"></span>
+                <span id="searchSuggestion"></span>
+            </div>
+        </section>
 
+     
     </header>
-
-    <div class="message">
+   <hr>
+    <!-- <div class="message">
 
         <?php if (!empty($_SESSION['message'])) : ?>
             <div>
@@ -57,7 +55,7 @@ namespace App\Includes;
             </div>
         <?php endif; ?>
 
-    </div>
+    </div> -->
 
 
     <main>

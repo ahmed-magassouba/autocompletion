@@ -1,5 +1,5 @@
 <?php
-
+require_once 'includes/header.php';
 //constante d'envoronnement
 define("DBHOST", "localhost");
 define("DBUSER", "root");
@@ -25,24 +25,30 @@ try {
 
 ?>
 
-<?php if (isset($_GET['search']) && !empty($_GET['search'])) : 
+<?php if (isset($_GET['search']) && !empty($_GET['search'])) :
 
-$search = strip_tags($_GET['search']);
-  
-$sqlVerif = "SELECT * FROM `country` WHERE name LIKE :search ORDER BY name LIMIT 4";
+    $search = strip_tags($_GET['search']);
 
-//ON PREPARE LA REQUETE
-$requete = $bdd->prepare($sqlVerif);
+    $sqlVerif = "SELECT * FROM `country` WHERE name LIKE :search ORDER BY name ";
 
-//ON EXECUTE LA REQUETE
-$requete->execute(array(':search' => '%'.$search.'%'));
+    //ON PREPARE LA REQUETE
+    $requete = $bdd->prepare($sqlVerif);
+
+    //ON EXECUTE LA REQUETE
+    $requete->execute(array(':search' => '%' . $search . '%'));
 
 
 
-$select = $requete->fetchAll();
+    $select = $requete->fetchAll();
 
 ?>
 
+    <?php foreach ($select as $value) : ?>
+        <a href="element.php?id=<?= $value['id'] ?>">
+            <img src="images/<?= $value['flagImage'] ?>" alt="">
+            <span><?= $value['name'] ?></span>
+        </a>
+    <?php endforeach ?>
 
 
 
@@ -54,7 +60,7 @@ $select = $requete->fetchAll();
 
 
 
-    <!-- <a href="element.php?<?= 'id' ?>"><?= $_GET['search'] ?></a> -->ok
+    <!-- <a href="element.php?<?= 'id' ?>"><?= $_GET['search'] ?></a> -->
 <?php else : ?>
     <?php header('Location: ../index.php')    ?>
 <?php endif ?>

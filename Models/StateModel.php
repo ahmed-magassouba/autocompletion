@@ -28,7 +28,7 @@ try {
 
 
 
-$search = isset($_POST['search']) ? strip_tags($_POST['search']) : '';
+$search = isset($_POST['search']) ? strip_tags($_POST['search']): '';
 
 
 $sqlVerif = "SELECT * FROM `country` WHERE name LIKE :search ORDER BY name LIMIT 4";

@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(function (responseData) {
           if (responseData[0]) {
-            searchResult.innerHTML = "";
+            // searchResult.innerHTML = "";
             ulbreak = searchResult.querySelector("ul");
             ulbreak !== null ? ulbreak.remove() : null;
 
@@ -33,28 +33,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
               list.addEventListener("click", function () {
                 input.value = element.name;
-               
-                  (window.location.href = `Views/recherche.php?search=${element.name}`)
-              
+
+                (window.location.href = `recherche.php?search=${element.name}`)
+
               });
             });
             searchResult.appendChild(ul);
-          } else {
-            searchResult.innerHTML =
-              "Aucun résultat trouvé pour votre recherche";
           }
         });
     } else {
       ulbreak = searchResult.querySelector("ul");
       ulbreak !== null ? ulbreak.remove() : null;
-      window.location.href = "index.php";
+      // window.location.href = "index.php";
     }
   });
 
 
 
 
-  input.addEventListener("keyup", function () {
+  input.addEventListener("input", function () {
     if (input.value.length > 0) {
       let dataSuggestion = new FormData(form);
       let ul = document.createElement("ul");
@@ -69,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(function (responseDataSuggestion) {
           if (responseDataSuggestion[0]) {
+            searchResult.innerHTML = "";
             searchSuggestion.innerHTML = "";
             ulbreak = searchSuggestion.querySelector("ul");
             ulbreak !== null ? ulbreak.remove() : null;
@@ -82,18 +80,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
               list.addEventListener("click", function () {
                 input.value = element.name;
-              
-                  (window.location.href = `Views/recherche.php?search=${element.name}`)
-               
+
+                (window.location.href = `recherche.php?search=${element.name}`)
+
               });
             });
             searchSuggestion.appendChild(ul);
+          } else {
+            searchResult.innerHTML =
+              "Aucun résultat trouvé pour votre recherche";
           }
         });
     } else {
       ulbreak = searchSuggestion.querySelector("ul");
       ulbreak !== null ? ulbreak.remove() : null;
-      window.location.href = "index.php";
+      // window.location.href = "index.php";
     }
   });
 });
