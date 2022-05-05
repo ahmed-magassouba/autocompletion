@@ -1,9 +1,5 @@
 <?php
-
-namespace App\Models;
-
-use App\Core\Db;
-
+require_once 'Core/Db.php';
 class Model extends Db
 {
 

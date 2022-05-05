@@ -84,6 +84,7 @@ header div {
 
 header span ul {
     border-bottom: 10px solid rgba(20, 20, 20, 0.116);
+    width: 100%;
 }
 
 header span ul li {
@@ -98,6 +99,13 @@ header span ul li:hover {
     border-radius: 20px;
 
 }
+
+#searchResult{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content:center;
+   }
 
 hr {
     margin-top: 20px;
